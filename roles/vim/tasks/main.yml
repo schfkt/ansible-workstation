@@ -1,0 +1,51 @@
+- name: install vim with support for X11
+  become: true
+  dnf:
+    name: vim-X11
+    state: present
+
+- name: create directories for vim
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "~/.vim"
+    - "~/.vim/undo"
+    - "~/.vim/backup"
+    - "~/.vim/swap"
+    - "~/.vim/bundle"
+    - "~/.vim/ultisnip"
+
+- name: install Vundle
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "~/.vim/bundle/Vundle.vim"
+    update: no
+
+- name: copy the config
+  copy:
+    src: ".vimrc"
+    dest: "~/.vimrc"
+
+    # NOTE: Make it work with ansible
+# - name: install the plugins
+#   command: 'vimx -E -s -c "source ~/.vimrc" -c PluginInstall -c qa'
+
+- name: install packages required by YCM
+  become: true
+  dnf:
+    name:
+      - cmake
+      - gcc-c++
+      - make
+      - python3-devel
+      - golang
+      - nodejs
+      - npm
+    state: present
+
+- name: compile YCM
+  command:
+    chdir: "~/.vim/bundle/YouCompleteMe"
+    cmd: "./install.py --clang-completer --go-completer --ts-completer"
+

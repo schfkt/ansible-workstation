@@ -1,0 +1,23 @@
+- hosts: localhost
+  become: false
+  roles:
+    - vim
+  tasks:
+    - name: install essential packages
+      become: true
+      dnf:
+        name:
+          - zeal
+          - git
+          - tig
+          - firefox
+          - "{{ dropbox_rpm_url }}"
+          - the_silver_searcher
+          - keepassxc
+          - chromium
+          - gnucash
+          - fzf
+          - jq
+          - emacs
+          - ncdu
+        state: present
