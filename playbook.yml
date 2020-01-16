@@ -2,6 +2,7 @@
   become: false
   roles:
     - vim
+    - tmux
   tasks:
     - name: install essential packages
       become: true

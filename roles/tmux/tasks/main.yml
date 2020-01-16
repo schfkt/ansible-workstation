@@ -1,0 +1,15 @@
+- name: install tmux
+  become: true
+  dnf:
+    name: tmux
+    state: present
+
+- name: copy config
+  copy:
+    src: ".tmux.conf"
+    dest: "~/"
+
+- name: copy themes
+  copy:
+    src: ".tmux"
+    dest: "~/"
