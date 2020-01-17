@@ -20,6 +20,12 @@
           - gnucash
           - fzf
           - jq
-          - emacs
           - ncdu
         state: present
+    - name: block ssh by firewall
+      become: true
+      firewalld:
+        service: ssh
+        permanent: yes
+        state: disabled
+
