@@ -3,6 +3,7 @@
   roles:
     - vim
     - tmux
+    - emacs
   tasks:
     - name: install essential packages
       become: true
