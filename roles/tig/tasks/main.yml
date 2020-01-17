@@ -1,0 +1,9 @@
+- name: install tig
+  become: true
+  dnf:
+    name: tig
+    state: present
+- name: copy the config
+  copy:
+    src: ".tigrc"
+    dest: "~/"
