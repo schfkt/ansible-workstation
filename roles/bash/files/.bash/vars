@@ -1,0 +1,13 @@
+# vim: ft=bash
+
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+export LC_ALL=en_US.UTF-8
+export EDITOR=vimx
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+

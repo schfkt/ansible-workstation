@@ -1,0 +1,9 @@
+- name: copy bashrc
+  copy:
+    src: ".bashrc"
+    dest: "~/"
+
+- name: copy the config dir
+  copy:
+    src: ".bash"
+    dest: "~/"

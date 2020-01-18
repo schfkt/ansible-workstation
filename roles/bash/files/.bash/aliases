@@ -1,0 +1,9 @@
+# vim: ft=bash
+
+alias ll='ls -lah'
+alias open=xdg-open
+alias vim=vimx
+
+alias kc=kubectl
+alias kx=kubectx
+

@@ -5,6 +5,7 @@
     - tmux
     - emacs
     - tig
+    - bash
   tasks:
     - name: install essential packages
       become: true
