@@ -7,6 +7,14 @@
     - tig
     - bash
   tasks:
+    - name: save fedora release version into a variable
+      command: "rpm -E %fedora"
+      register: fedora_release
+    - name: enable rpm fusion repo
+      become: true
+      dnf:
+        name: "{{ rpm_fusion_url | replace('$fedora_release', fedora_release.stdout) }}"
+        state: present
     - name: install essential packages
       become: true
       dnf:
@@ -22,6 +30,7 @@
           - fzf
           - jq
           - ncdu
+          - telegram-desktop
         state: present
     - name: block ssh by firewall
       become: true
