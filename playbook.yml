@@ -7,6 +7,7 @@
     - tig
     - bash
     - i3
+    - hibernate
   tasks:
     - name: save fedora release version into a variable
       command: "rpm -E %fedora"
