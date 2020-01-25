@@ -1,10 +1,17 @@
-# - name: install required packages
-#   become: true
-#   dnf:
-#     name:
-#       - i3
-#       - i3status
-#     state: present
+- name: install required packages
+  become: true
+  dnf:
+    name:
+      - i3
+      - i3status
+      - network-manager-applet
+      - feh
+      - pavucontrol
+      - kmix
+      - arandr
+      - kmix
+      - dunst
+    state: present
 - name: create the config directory
   file:
     path: "~/.config/i3"

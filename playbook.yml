@@ -33,12 +33,7 @@
           - jq
           - ncdu
           - telegram-desktop
-          - network-manager-applet
-          - feh
-          - pavucontrol
           - flameshot
-          - dunst
-          - arandr
         state: present
     - name: block ssh by firewall
       become: true
