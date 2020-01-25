@@ -1,0 +1,32 @@
+# - name: install required packages
+#   become: true
+#   dnf:
+#     name:
+#       - i3
+#       - i3status
+#     state: present
+- name: create the config directory
+  file:
+    path: "~/.config/i3"
+    state: directory
+- name: copy the config
+  copy:
+    src: config
+    dest: "~/.config/i3/config"
+- name: copy the status bar config
+  copy:
+    src: status
+    dest: "~/.config/i3/status"
+- name: create the bin directory
+  file:
+    path: "~/.config/i3/bin"
+    state: directory
+- name: copy related scripts
+  copy:
+    src: "{{ item }}"
+    dest: "~/.config/i3/bin"
+    mode: 0744
+  with_items:
+    - bin/kde-services
+    - bin/i3-toggle-bar
+

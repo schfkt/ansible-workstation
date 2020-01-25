@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Start KDE Daemon and wait until it launches
+/usr/bin/kded5 &
+
+while [ -z "$(pgrep -lf kded5)" ]; do
+  true
+done
+
+# Load modules and start required KDE daemons
+qdbus org.kde.kded5 /kded loadModule keyboard
+/usr/libexec/org_kde_powerdevil &
