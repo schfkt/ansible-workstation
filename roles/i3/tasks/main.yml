@@ -12,28 +12,23 @@
       - kmix
       - dunst
     state: present
-- name: create the config directory
-  file:
-    path: "~/.config/i3"
-    state: directory
-- name: copy the config
+- name: copy the i3 configs
   copy:
-    src: config
-    dest: "~/.config/i3/config"
-- name: copy the status bar config
-  copy:
-    src: status
-    dest: "~/.config/i3/status"
+    src: i3
+    dest: ~/.config
 - name: create the bin directory
   file:
-    path: "~/.config/i3/bin"
+    path: ~/.config/i3/bin
     state: directory
 - name: copy related scripts
   copy:
     src: "{{ item }}"
-    dest: "~/.config/i3/bin"
+    dest: ~/.config/i3/bin
     mode: 0744
   with_items:
     - bin/kde-services
     - bin/i3-toggle-bar
-
+- name: configure dunst
+  copy:
+    src: dunst
+    dest: ~/.config
