@@ -181,8 +181,8 @@ for_window [class="Arandr"] floating enable
 
 # Assign certain apps to specific workspaces
 # put windows on specific workspace
-assign [class="Slack"] 10
-assign [class="TelegramDesktop"] 9
+# assign [class="Slack"] 10
+# assign [class="TelegramDesktop"] 9
 
 # Custom hotkeys
 bindsym --release $mod+Control+4 exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots/

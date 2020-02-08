@@ -1,0 +1,25 @@
+- name: install dnf plugins to manage repos
+  become: true
+  dnf:
+    name: dnf-plugins-core
+
+- name: enable docker-ce stable repo
+  become: true
+  command:
+    cmd: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+    creates: /etc/yum.repos.d/docker-ce.repo
+
+- name: install the packages
+  become: true
+  dnf:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+
+- name: start and enable docker service
+  become: true
+  systemd:
+    name: docker
+    state: started
+    enabled: yes

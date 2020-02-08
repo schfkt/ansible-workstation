@@ -1,0 +1,14 @@
+- name: install snapd
+  become: true
+  dnf:
+    name:
+      - snapd
+    state: present
+
+- name: install packages
+  become: true
+  snap:
+    name:
+      - standard-notes
+    state: present
+
