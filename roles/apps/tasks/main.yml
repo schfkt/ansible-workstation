@@ -1,0 +1,33 @@
+- name: save fedora release version into a variable
+  command: "rpm -E %fedora"
+  register: fedora_release
+
+- name: enable rpm fusion repo
+  become: true
+  dnf:
+    name: "{{ rpm_fusion_url | replace('$fedora_release', fedora_release.stdout) }}"
+    state: present
+
+- name: install essential packages
+  become: true
+  dnf:
+    name:
+      - zeal
+      - git
+      - firefox
+      - "{{ dropbox_rpm_url }}"
+      - the_silver_searcher
+      - keepassxc
+      - chromium
+      - gnucash
+      - fzf
+      - jq
+      - ncdu
+      - telegram-desktop
+      - flameshot
+      - thunderbird
+      - lynis
+      - NetworkManager-openvpn-gnome
+      - podman
+      - youtube-dl
+      - vlc

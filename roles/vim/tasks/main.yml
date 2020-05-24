@@ -14,7 +14,6 @@
     - "~/.vim/backup"
     - "~/.vim/swap"
     - "~/.vim/bundle"
-    - "~/.vim/ultisnip"
 
 - name: install Vundle
   git:
@@ -22,10 +21,15 @@
     dest: "~/.vim/bundle/Vundle.vim"
     update: no
 
-- name: copy the config
-  copy:
-    src: ".vimrc"
-    dest: "~/.vimrc"
+- name: link the configs
+  file:
+    src: "~/Dropbox/df/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+  loop:
+    - .vimrc
+    - .vim/ultisnips
+    - .vim/nerdtree_plugin
 
     # NOTE: Make it work with ansible
 # - name: install the plugins
@@ -47,5 +51,5 @@
 - name: compile YCM
   command:
     chdir: "~/.vim/bundle/YouCompleteMe"
-    cmd: "./install.py --clang-completer --go-completer --ts-completer"
+    cmd: "./install.py --clang-completer --go-completer --ts-completer --rust-completer"
 

@@ -4,17 +4,20 @@
     dest: /etc/systemd/logind.conf
     regexp: "^HandleLidSwitch="
     line: "HandleLidSwitch=suspend-then-hibernate"
+
 - name: set the timeout between suspend and hibernate
   become: true
   lineinfile:
     dest: /etc/systemd/sleep.conf
     regexp: "^HibernateDelaySec"
     line: "HibernateDelaySec=60min"
+
 - name: copy config for systemd service that locks the screen
   become: true
   copy:
     src: suspend@.service
     dest: /etc/systemd/system
+
 - name: enable the service
   become: true
   systemd:
