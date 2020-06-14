@@ -31,9 +31,9 @@
     - .vim/ultisnips
     - .vim/nerdtree_plugin
 
-    # NOTE: Make it work with ansible
-# - name: install the plugins
-#   command: 'vimx -E -s -c "source ~/.vimrc" -c PluginInstall -c qa'
+- name: install the plugins
+  command: 'vimx -E -s -c "source ~/.vimrc" -c PluginInstall -c qa'
+  ignore_errors: true
 
 - name: install packages required by YCM
   become: true
