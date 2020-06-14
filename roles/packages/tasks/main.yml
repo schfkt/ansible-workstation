@@ -3,5 +3,5 @@
   when: ansible_distribution == 'Fedora'
 
 - name: Install packages for macOS
-  include_tasks: macos.yml
+  include_tasks: macos/main.yml
   when: ansible_distribution == 'MacOSX'
