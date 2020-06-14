@@ -12,14 +12,17 @@
       - kmix
       - dunst
     state: present
+
 - name: copy the i3 configs
   copy:
     src: i3
     dest: ~/.config
+
 - name: create the bin directory
   file:
     path: ~/.config/i3/bin
     state: directory
+
 - name: copy related scripts
   copy:
     src: "{{ item }}"
@@ -28,7 +31,21 @@
   with_items:
     - bin/kde-services
     - bin/i3-toggle-bar
+
 - name: configure dunst
   copy:
     src: dunst
     dest: ~/.config
+
+- name: copy config for systemd service that locks the screen
+  become: true
+  copy:
+    src: suspend@.service
+    dest: /etc/systemd/system
+
+- name: enable the service
+  become: true
+  systemd:
+    name: suspend@pi
+    enabled: yes
+    daemon_reload: yes

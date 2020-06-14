@@ -1,0 +1,8 @@
+- name: block all incoming connections
+  command: "/usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on"
+
+- name: enable stealth mode
+  command: "/usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on"
+
+- name: enable the firewall
+  command: "/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on"

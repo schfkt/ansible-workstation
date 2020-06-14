@@ -1,0 +1,7 @@
+- name: block ssh by firewall
+  become: true
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: disabled
+

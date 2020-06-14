@@ -1,0 +1,7 @@
+- name: setup Fedora firewall
+  include_tasks: fedora.yml
+  when: ansible_distribution == 'Fedora'
+
+- name: setup macOS firewall
+  include_tasks: macos.yml
+  when: ansible_distribution == 'MacOSX'

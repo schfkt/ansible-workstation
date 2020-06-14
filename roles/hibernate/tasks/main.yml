@@ -12,15 +12,3 @@
     regexp: "^HibernateDelaySec"
     line: "HibernateDelaySec=60min"
 
-- name: copy config for systemd service that locks the screen
-  become: true
-  copy:
-    src: suspend@.service
-    dest: /etc/systemd/system
-
-- name: enable the service
-  become: true
-  systemd:
-    name: suspend@pi
-    enabled: yes
-    daemon_reload: yes

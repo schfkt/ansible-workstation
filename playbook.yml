@@ -1,8 +1,10 @@
 - hosts: localhost
   become: false
+  pre_tasks:
+    - set_fact:
+        dotfiles_dir: "{{ lookup('env', 'PWD') }}/dotfiles"
   roles:
-    - apps
-    - snap
+    - packages
     - vim
     - tmux
     - emacs
@@ -10,11 +12,5 @@
     - bash
     - i3
     - hibernate
-  tasks:
-    - name: block ssh by firewall
-      become: true
-      firewalld:
-        service: ssh
-        permanent: yes
-        state: disabled
+    - firewall
 
