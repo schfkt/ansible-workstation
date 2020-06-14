@@ -1,8 +1,5 @@
-- name: install vim with support for X11
-  become: true
-  dnf:
-    name: vim-X11
-    state: present
+- name: install required packages
+  include_tasks: packages/main.yml
 
 - name: create directories for vim
   file:
@@ -34,19 +31,6 @@
 - name: install the plugins
   command: 'vimx -E -s -c "source ~/.vimrc" -c PluginInstall -c qa'
   ignore_errors: true
-
-- name: install packages required by YCM
-  become: true
-  dnf:
-    name:
-      - cmake
-      - gcc-c++
-      - make
-      - python3-devel
-      - golang
-      - nodejs
-      - npm
-    state: present
 
 - name: compile YCM
   command:
