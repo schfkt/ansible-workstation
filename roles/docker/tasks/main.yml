@@ -1,3 +1,4 @@
+# NOTE: deprecated, just use podman instead
 - name: install dnf plugins to manage repos
   become: true
   dnf:

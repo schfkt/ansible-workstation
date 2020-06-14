@@ -10,5 +10,6 @@
   snap:
     name:
       - standard-notes
+      - polar-bookshelf
     state: present
 

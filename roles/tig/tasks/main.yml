@@ -3,6 +3,7 @@
   dnf:
     name: tig
     state: present
+
 - name: copy the config
   copy:
     src: ".tigrc"
