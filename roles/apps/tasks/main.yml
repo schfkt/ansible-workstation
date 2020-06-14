@@ -31,3 +31,5 @@
       - podman
       - youtube-dl
       - vlc
+      - yarnpkg
+      - xclip
