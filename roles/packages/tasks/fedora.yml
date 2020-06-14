@@ -5,7 +5,7 @@
 - name: enable rpm fusion repo
   become: true
   dnf:
-    name: "{{ rpm_fusion_url | replace('$fedora_release', fedora_release.stdout) }}"
+    name: "{{ fedora.rpm_fusion_url | replace('$fedora_release', fedora_release.stdout) }}"
     state: present
 
 - name: install essential packages
@@ -15,7 +15,7 @@
       - zeal
       - git
       - firefox
-      - "{{ dropbox_rpm_url }}"
+      - "{{ fedora.dropbox_rpm_url }}"
       - the_silver_searcher
       - keepassxc
       - chromium
@@ -33,3 +33,10 @@
       - vlc
       - yarnpkg
       - xclip
+
+- name: install docker
+  include_tasks: fedora/docker.yml
+  when: fedora.docker.install
+
+- name: install snap packages
+  include_tasks: fedora/snap.yml

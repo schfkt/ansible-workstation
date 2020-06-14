@@ -15,7 +15,7 @@
 
 - name: check if polar storage dir exists
   stat:
-    path: "{{ snap.polar_dir }}/.polar"
+    path: "{{ fedora.snap.polar_dir }}/.polar"
   register: storage_dir
 
 - set_fact:
@@ -23,13 +23,13 @@
     storage_is_lnk: "{{ storage_dir.stat.islnk | default(false) }}"
 
 - name: backup the original polar dir if it exists
-  command: "mv \"{{ snap.polar_dir }}/.polar\" \"{{ snap.polar_dir }}/.polar.bak\""
+  command: "mv \"{{ fedora.snap.polar_dir }}/.polar\" \"{{ fedora.snap.polar_dir }}/.polar.bak\""
   when: storage_is_dir
 
 - name: make a link to shared polar storage
   file:
     src: ~/Dropbox/other/polar-bookshelf
-    path: "{{ snap.polar_dir }}/.polar"
+    path: "{{ fedora.snap.polar_dir }}/.polar"
     state: link
   when: not storage_is_lnk
 
