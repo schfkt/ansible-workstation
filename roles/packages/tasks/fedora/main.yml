@@ -35,8 +35,8 @@
       - xclip
 
 - name: install docker
-  include_tasks: fedora/docker.yml
+  include_tasks: docker.yml
   when: fedora.docker.install
 
 - name: install snap packages
-  include_tasks: fedora/snap.yml
+  include_tasks: snap.yml
