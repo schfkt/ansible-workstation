@@ -6,3 +6,13 @@ fedora:
     repo: https://download.docker.com/linux/fedora/docker-ce.repo
   snap:
     polar_dir: ~/snap/polar-bookshelf/current
+  appimage:
+    install_dir: ~/.local/appimage
+    bin_dir: ~/bin
+    packages:
+      - name: joplin
+        url: "https://github.com/laurent22/joplin/releases/download/v1.0.224/Joplin-1.0.224.AppImage"
+        checksum: "sha512:c1db6586a3bca6b3f085e0f9c0413a53dd1f60c051085a0a8eaba79798e9ca01124838708946ddfac59ca527a94657b45f3a972c7ca7235a4580a94585ef222f"
+      - name: cryptomator
+        url: "https://dl.bintray.com/cryptomator/cryptomator/1.5.6/cryptomator-1.5.6-x86_64.AppImage"
+        checksum: "sha256:4fe19465da92d0a2bc00a300e321632add700b0a2feecb8ee4abea3b74102e6c"

@@ -1,9 +1,8 @@
-- name: copy bashrc
-  copy:
-    src: ".bashrc"
-    dest: "~/"
-
-- name: copy the config dir
-  copy:
-    src: ".bash"
-    dest: "~/"
+- name: link the configs
+  file:
+    src: "~/Dropbox/df/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+  loop:
+    - .bashrc
+    - .bash_profile

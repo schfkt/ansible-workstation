@@ -4,12 +4,11 @@
     name: tmux
     state: present
 
-- name: copy config
-  copy:
-    src: ".tmux.conf"
-    dest: "~/"
-
-- name: copy themes
-  copy:
-    src: ".tmux"
-    dest: "~/"
+- name: link the configs
+  file:
+    src: "~/Dropbox/df/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+  loop:
+    - .tmux.conf
+    - .tmux

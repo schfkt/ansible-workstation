@@ -33,6 +33,8 @@
       - vlc
       - yarnpkg
       - xclip
+      - exfat-utils
+      - fuse-exfat
 
 - name: install docker
   include_tasks: docker.yml
@@ -40,3 +42,6 @@
 
 - name: install snap packages
   include_tasks: snap.yml
+
+- name: install AppImage packages
+  include_tasks: appimage/main.yml

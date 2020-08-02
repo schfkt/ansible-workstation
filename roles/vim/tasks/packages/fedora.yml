@@ -1,7 +1,9 @@
-- name: install vim with support for X11
+- name: install vim
   become: true
   dnf:
-    name: vim-X11
+    name:
+      - vim-X11
+      - vim-enhanced
     state: present
 
 - name: install packages required by YCM

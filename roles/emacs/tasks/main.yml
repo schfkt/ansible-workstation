@@ -4,10 +4,13 @@
     name: emacs
     state: present
 
-- name: copy the config
-  copy:
-    src: ".spacemacs"
-    dest: "~/"
+- name: link the config
+  file:
+    src: "~/Dropbox/df/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+  loop:
+    - .spacemacs
 
 - name: clone spacemacs and switch to develop version
   git:

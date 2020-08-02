@@ -1,0 +1,16 @@
+- name: install packages
+  become: true
+  dnf:
+    name:
+      - nodejs
+      - npm
+      - yarnpkg
+    state: present
+
+- name: install nvm
+  git:
+    repo: "https://github.com/nvm-sh/nvm.git"
+    dest: "~/.nvm"
+    version: v0.35.3
+    update: no
+

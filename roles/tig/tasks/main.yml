@@ -4,7 +4,10 @@
     name: tig
     state: present
 
-- name: copy the config
-  copy:
-    src: ".tigrc"
-    dest: "~/"
+- name: link the config
+  file:
+    src: "~/Dropbox/df/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+  loop:
+    - .tigrc
