@@ -6,7 +6,7 @@
 
 - name: link the configs
   file:
-    src: "~/Dropbox/df/{{ item }}"
+    src: "{{ dotfiles_dir }}/{{ item }}"
     path: "~/{{ item }}"
     state: link
   loop:
