@@ -1,0 +1,11 @@
+- name: add resume module
+  become: true
+  copy:
+    src: 99-fix-resume.conf
+    dest: /etc/dracut.conf.d/99-fix-resume.conf
+    mode: 0644
+
+- name: update initramfs
+  become: true
+  command:
+    cmd: dracut -fv

@@ -1,14 +1,3 @@
-- name: enable suspend-then-hibernate
-  become: true
-  lineinfile:
-    dest: /etc/systemd/logind.conf
-    regexp: "^HandleLidSwitch="
-    line: "HandleLidSwitch=suspend-then-hibernate"
-
-- name: set the timeout between suspend and hibernate
-  become: true
-  lineinfile:
-    dest: /etc/systemd/sleep.conf
-    regexp: "^HibernateDelaySec"
-    line: "HibernateDelaySec=60min"
-
+- name: setup hibernate on Fedora
+  include_tasks: fedora/main.yml
+  when: ansible_distribution == 'Fedora'
