@@ -11,8 +11,8 @@ fedora:
     bin_dir: ~/bin
     packages:
       - name: joplin
-        url: "https://github.com/laurent22/joplin/releases/download/v1.0.224/Joplin-1.0.224.AppImage"
-        checksum: "sha512:c1db6586a3bca6b3f085e0f9c0413a53dd1f60c051085a0a8eaba79798e9ca01124838708946ddfac59ca527a94657b45f3a972c7ca7235a4580a94585ef222f"
+        url: "https://github.com/laurent22/joplin/releases/download/v1.0.245/Joplin-1.0.245.AppImage"
+        checksum: "sha512:2a7cb01baa69867fb23fd279b4bf81358aa5ae2f706139251d4cd9c6c583fe908b30820264ad3a672f320dab1ef9c7afbbe04c9312567a1c3a4fd783cc25636c"
       - name: cryptomator
-        url: "https://dl.bintray.com/cryptomator/cryptomator/1.5.6/cryptomator-1.5.6-x86_64.AppImage"
-        checksum: "sha256:4fe19465da92d0a2bc00a300e321632add700b0a2feecb8ee4abea3b74102e6c"
+        url: "https://dl.bintray.com/cryptomator/cryptomator/1.5.8/cryptomator-1.5.8-x86_64.AppImage"
+        checksum: "sha256:10d942204bd699daa04df1f452385c8c4ec008e3cb8b55a62c78222e30061c4d"
