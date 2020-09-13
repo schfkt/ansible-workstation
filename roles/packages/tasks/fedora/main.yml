@@ -35,6 +35,9 @@
       - xclip
       - exfat-utils
       - fuse-exfat
+      - darktable
+      - libreoffice
+      - hugo
 
 - name: install docker
   include_tasks: docker.yml
