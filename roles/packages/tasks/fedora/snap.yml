@@ -8,9 +8,7 @@
 - name: install packages
   become: true
   snap:
-    name:
-      - standard-notes
-      - polar-bookshelf
+    name: "{{ fedora.snap.packages }}"
     state: present
 
 - name: check if polar storage dir exists
