@@ -38,6 +38,10 @@
       - darktable
       - libreoffice
       - hugo
+      - nmap
+      - arduino
+      - speedtest-cli
+      - bat
 
 - name: install docker
   include_tasks: docker.yml
