@@ -42,6 +42,9 @@
       - arduino
       - speedtest-cli
       - bat
+      - ImageMagick
+      - gimp
+      - gimp-heif-plugin
 
 - name: install docker
   include_tasks: docker.yml
