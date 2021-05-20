@@ -5,14 +5,36 @@
       set_fact:
         dotfiles_dir: "{{ lookup('env', 'HOME') }}/Dropbox/df"
   roles:
-    - packages
-    - vim
-    - tmux
-    - emacs
-    - tig
-    - bash
-    # - i3
-    - hibernate
-    - firewall
-    - nodejs
-
+    - role: packages
+      tags:
+        - packages
+    - role: vim
+      tags:
+        - vim
+    - role: tmux
+      tags:
+        - tmux
+    - role: emacs
+      tags:
+        - emacs
+    - role: tig
+      tags:
+        - tig
+    - role: bash
+      tags:
+        - bash
+    - role: i3
+      tags:
+        - i3
+    - role: hibernate
+      tags:
+        - hibernate
+    - role: firewall
+      tags:
+        - firewall
+    - role: nodejs
+      tags:
+        - nodejs
+    - role: gpg
+      tags:
+        - gpg
