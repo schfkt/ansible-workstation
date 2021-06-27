@@ -5,8 +5,11 @@
 - name: enable rpm fusion repo
   become: true
   dnf:
-    name: "{{ fedora.rpm_fusion_url | replace('$fedora_release', fedora_release.stdout) }}"
+    name: "{{ item | replace('$fedora_release', fedora_release.stdout) }}"
     state: present
+  loop:
+    - "{{ fedora.rpm_fusion_url.free }}"
+    - "{{ fedora.rpm_fusion_url.nonfree }}"
 
 - name: install essential packages
   become: true
@@ -15,7 +18,7 @@
       - zeal
       - git
       - firefox
-      - "{{ fedora.dropbox_rpm_url }}"
+      - dropbox
       - the_silver_searcher
       - keepassxc
       - chromium
@@ -45,6 +48,7 @@
       - ImageMagick
       - gimp
       - gimp-heif-plugin
+      - anki
 
 - name: install docker
   include_tasks: docker.yml
