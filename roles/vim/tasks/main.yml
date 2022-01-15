@@ -7,16 +7,17 @@
     state: directory
   loop:
     - "~/.vim"
+    - "~/.vim/autoload"
     - "~/.vim/undo"
     - "~/.vim/backup"
     - "~/.vim/swap"
     - "~/.vim/bundle"
 
-- name: install Vundle
-  git:
-    repo: "https://github.com/VundleVim/Vundle.vim.git"
-    dest: "~/.vim/bundle/Vundle.vim"
-    update: no
+- name: install vim-plug
+  get_url:
+    url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    dest: "~/.vim/autoload/plug.vim"
+    mode: 0600
 
 - name: link the configs
   file:
@@ -29,7 +30,7 @@
     - .vim/nerdtree_plugin
 
 - name: install the plugins
-  command: 'vimx -E -s -c "source ~/.vimrc" -c PluginInstall -c qa'
+  command: 'vimx -E -s -c "source ~/.vimrc" -c PlugInstall -c qa'
   ignore_errors: true
 
 - name: compile YCM
