@@ -49,6 +49,7 @@
       - gimp
       - gimp-heif-plugin
       - anki
+      - ripgrep
 
 - name: install docker
   include_tasks: docker.yml
