@@ -1,0 +1,22 @@
+- name: add tailscale repo
+  become: true
+  command: "dnf config-manager --add-repo {{ tailscale.fedora.repo }}"
+
+- name: install tailscale
+  become: true
+  dnf:
+    name: tailscale
+    state: present
+
+- name: enable the service
+  become: true
+  systemd:
+    name: tailscaled
+    enabled: yes
+    state: started
+  register: tailscale_service
+
+- name: tell to perform the auth
+  debug:
+    msg: "run manually: sudo tailscale up"
+  when: tailscale_service.changed == true

@@ -1,0 +1,7 @@
+- name: Setup tailscale for Fedora
+  include_tasks: fedora/main.yml
+  when: ansible_distribution == 'Fedora'
+
+- name: Setup tailscale for macOS
+  include_tasks: macos/main.yml
+  when: ansible_distribution == 'MacOSX'

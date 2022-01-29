@@ -1,0 +1,3 @@
+tailscale:
+  fedora:
+    repo: "https://pkgs.tailscale.com/stable/fedora/tailscale.repo"

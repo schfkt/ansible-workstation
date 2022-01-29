@@ -38,3 +38,6 @@
     - role: gpg
       tags:
         - gpg
+    - role: tailscale
+      tags:
+        - tailscale
