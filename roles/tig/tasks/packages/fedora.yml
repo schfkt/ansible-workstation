@@ -1,0 +1,4 @@
+- name: install tig
+  become: true
+  dnf:
+    name: tig

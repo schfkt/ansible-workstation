@@ -1,0 +1,8 @@
+- name: install packages for Fedora
+  include_tasks: fedora.yml
+  when: ansible_distribution == 'Fedora'
+
+- name: install packages for macOS
+  include_tasks: macos.yml
+  when: ansible_distribution == 'MacOSX'
+

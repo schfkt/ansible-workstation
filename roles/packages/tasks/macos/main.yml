@@ -1,0 +1,59 @@
+- name: install packages
+  homebrew:
+    name:
+      - ansible
+      - bash-completion
+      - bat
+      - cmake
+      - coreutils
+      - delve
+      - dive
+      - ffmpeg
+      - fzf
+      - gawk
+      - git
+      - git-extras
+      - gnu-sed
+      - gnupg
+      - golang
+      - grep
+      - htop
+      - hugo
+      - jq
+      - jsonlint
+      - kubectx
+      - ncdu
+      - node
+      - nvm
+      - pinentry-mac
+      - ripgrep
+      - rustup-init
+      - shfmt
+      - telnet
+      - tokei
+      - tree
+      - yarn
+      - youtube-dl
+
+- name: install casks
+  homebrew_cask:
+    name:
+      - alfred
+      - anki
+      - cryptomator
+      - darktable
+      - dash
+      - dropbox
+      - firefox
+      - freeplane
+      - insomnia
+      - iterm2
+      - joplin
+      - keepassxc
+      - spectacle
+      - standard-notes
+      - telegram-desktop
+      - ticktick
+      - the-unarchiver
+      - thunderbird
+      - vlc

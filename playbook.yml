@@ -4,6 +4,8 @@
     - name: store dotfiles dir path in a var
       set_fact:
         dotfiles_dir: "{{ lookup('env', 'HOME') }}/Dropbox/df"
+      tags:
+        - always
   roles:
     - role: packages
       tags:
