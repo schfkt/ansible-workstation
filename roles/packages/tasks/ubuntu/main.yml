@@ -1,0 +1,28 @@
+- name: install packages
+  become: true
+  package:
+    name:
+      - anki
+      - arduino
+      - bat
+      - chromium-browser
+      - exfat-fuse
+      - exfat-utils
+      - firefox
+      - flameshot
+      - freeplane
+      - gimp
+      - git
+      - hugo
+      - imagemagick
+      - jq
+      - keepassxc
+      - ncdu
+      - nmap
+      - speedtest-cli
+      - telegram-desktop
+      - thunderbird
+      - vlc
+      - xclip
+      - youtube-dl
+      - zeal

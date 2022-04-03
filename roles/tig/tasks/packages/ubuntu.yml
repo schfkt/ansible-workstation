@@ -1,4 +1,4 @@
 - name: install tig
   become: true
-  dnf:
+  apt:
     name: tig

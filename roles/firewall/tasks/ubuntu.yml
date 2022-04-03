@@ -1,0 +1,14 @@
+- name: disable incoming connections
+  become: true
+  command:
+    cmd: ufw default deny incoming
+
+- name: enable outgoing connections
+  become: true
+  command:
+    cmd: ufw default allow outgoing
+
+- name: enable the firewall
+  become: true
+  command:
+    cmd: ufw enable

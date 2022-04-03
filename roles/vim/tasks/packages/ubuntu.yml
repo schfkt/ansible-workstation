@@ -1,0 +1,30 @@
+- name: install vim
+  become: true
+  apt:
+    name:
+      - vim
+      - vim-gtk3 # required for clipboard support
+    install_recommends: no
+    state: present
+
+- name: install packages required by YCM
+  become: true
+  apt:
+    name:
+      - build-essential
+      - cmake
+      - vim-nox
+      - python3-dev
+      - golang
+      - nodejs
+      - npm
+    state: present
+
+- name: install additional packages
+  become: true
+  apt:
+    name:
+      - fzf
+      - ripgrep
+    install_recommends: no
+    state: present

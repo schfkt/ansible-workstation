@@ -30,7 +30,7 @@
     - .vim/nerdtree_plugin
 
 - name: install the plugins
-  command: 'vimx -E -s -c "source ~/.vimrc" -c PlugInstall -c qa'
+  command: 'vim -E -s -c "source ~/.vimrc" -c PlugInstall -c qa'
   ignore_errors: true
 
 - name: compile YCM

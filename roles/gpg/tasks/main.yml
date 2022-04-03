@@ -1,8 +1,7 @@
 - name: install packages
   become: true
-  dnf:
-    name:
-      - gnupg
+  package:
+    name: gnupg
 
 - name: copy the config
   copy:

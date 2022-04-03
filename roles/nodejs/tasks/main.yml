@@ -1,6 +1,6 @@
 - name: install packages
   become: true
-  dnf:
+  package:
     name:
       - nodejs
       - npm
@@ -11,6 +11,5 @@
   git:
     repo: "https://github.com/nvm-sh/nvm.git"
     dest: "~/.nvm"
-    version: v0.39.0
+    version: v0.39.1
     update: no
-

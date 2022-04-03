@@ -1,6 +1,6 @@
-- name: setup Fedora firewall
-  include_tasks: fedora.yml
-  when: ansible_distribution == 'Fedora'
+- name: setup PopOS firewall
+  include_tasks: ubuntu.yml
+  when: ansible_distribution == 'Pop!_OS'
 
 - name: setup macOS firewall
   include_tasks: macos.yml
