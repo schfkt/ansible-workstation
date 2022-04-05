@@ -1,0 +1,16 @@
+- name: install required packages
+  include_tasks: packages/main.yml
+
+- name: create conifg directory
+  file:
+    path: "~/.config/alacritty"
+    state: directory
+
+- name: link the config
+  file:
+    src: "{{ dotfiles_dir }}/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+  with_items:
+    - ".config/alacritty/alacritty.yml"
+
