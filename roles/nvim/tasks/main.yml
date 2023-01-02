@@ -1,0 +1,38 @@
+- name: install required packages
+  include_tasks: packages/main.yml
+
+- name: create directories for nvim
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "~/.config/nvim"
+    - "~/.local/share/nvim/site/autoload"
+    - "~/.local/share/nvim/undo"
+    - "~/.local/share/nvim/backup"
+    - "~/.local/share/nvim/swap"
+
+- name: install vim-plug
+  get_url:
+    url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    dest: "~/.local/share/nvim/site/autoload/plug.vim"
+    mode: 0600
+
+- name: link the configs
+  file:
+    src: "{{ dotfiles_dir }}/{{ item.src }}"
+    path: "{{ item.dest }}"
+    state: link
+  loop:
+    - {src: ".vimrc", dest: "~/.config/nvim/init.vim"}
+    - {src: ".vim/ultisnips", dest: "~/.local/share/nvim/ultisnips"}
+    - {src: ".vim/nerdtree_plugin", dest: "~/.local/share/nvim/nerdtree_plugin"}
+
+- name: install the plugins
+  command: 'nvim -E -s -c "source ~/.vimrc" -c PlugInstall -c qa'
+  ignore_errors: true
+
+- name: compile YCM
+  command:
+    chdir: "~/.local/share/nvim/plugged/YouCompleteMe"
+    cmd: "./install.py --clang-completer --go-completer --ts-completer --rust-completer"
