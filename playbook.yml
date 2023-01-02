@@ -3,7 +3,7 @@
   pre_tasks:
     - name: store dotfiles dir path in a var
       set_fact:
-        dotfiles_dir: "{{ lookup('env', 'HOME') }}/Dropbox/df"
+        dotfiles_dir: "{{ lookup('env', 'HOME') }}/sync/df"
       tags:
         - always
   roles:
