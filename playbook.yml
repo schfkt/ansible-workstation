@@ -10,15 +10,15 @@
     - role: packages
       tags:
         - packages
+    - role: alacritty
+      tags:
+        - alacritty
     - role: vim
       tags:
         - vim
     - role: tmux
       tags:
         - tmux
-    - role: emacs
-      tags:
-        - emacs
     - role: tig
       tags:
         - tig
@@ -43,3 +43,6 @@
     - role: tailscale
       tags:
         - tailscale
+    - role: syncthing
+      tags:
+        - syncthing

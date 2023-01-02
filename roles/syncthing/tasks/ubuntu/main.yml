@@ -1,0 +1,51 @@
+- name: add syncthing repo key
+  become: true
+  apt_key:
+    url: https://syncthing.net/release-key.gpg
+    state: present
+
+- name: add syncthing repo
+  become: true
+  template:
+    src: syncthing.list
+    dest: /etc/apt/sources.list.d/syncthing.list
+    mode: 0644
+
+- name: install syncthing
+  become: true
+  apt:
+    name: syncthing
+    state: present
+    update_cache: yes
+
+- name: configure systemd service
+  become: true
+  systemd:
+    name: "syncthing@{{ syncthing.user }}"
+    daemon_reload: yes
+    state: started
+    enabled: yes
+
+- name: open sync tcp protocol port
+  become: true
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 22000
+    state: enabled
+
+- name: open sync udp protocol port
+  become: true
+  ufw:
+    rule: allow
+    proto: udp
+    port: 22000
+    state: enabled
+
+- name: open discovery udp protocol port
+  become: true
+  ufw:
+    rule: allow
+    proto: udp
+    port: 21027
+    state: enabled
