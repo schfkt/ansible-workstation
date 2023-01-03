@@ -1,3 +1,11 @@
+- name: install packages required by YCM
+  homebrew:
+    name:
+      - cmake
+      - python
+      - go
+      - nodejs
+
 - name: install vim
   homebrew:
     name: vim
