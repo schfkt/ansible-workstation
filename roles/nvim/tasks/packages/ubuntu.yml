@@ -1,22 +1,35 @@
-- name: install nvim
+- name: install prerequisites for PPA
   become: true
   apt:
     name:
-      - nvim
+      - software-properties-common
     install_recommends: no
     state: present
 
-- name: install packages required by YCM
+- name: add PPA repo
+  become: true
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+
+- name: install packages for YCM
   become: true
   apt:
     name:
+      - python3-dev
+      - python3-pip
       - build-essential
       - cmake
-      - vim-nox
-      - python3-dev
       - golang
       - nodejs
       - npm
+    state: present
+
+- name: install neovim
+  become: true
+  apt:
+    name:
+      - neovim
+    install_recommends: no
     state: present
 
 - name: install additional packages

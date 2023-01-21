@@ -6,7 +6,7 @@
     path: "{{ item }}"
     state: directory
   loop:
-    - "~/.config/nvim"
+    - "~/.config"
     - "~/.local/share/nvim/site/autoload"
     - "~/.local/share/nvim/undo"
     - "~/.local/share/nvim/backup"
@@ -24,9 +24,8 @@
     path: "{{ item.dest }}"
     state: link
   loop:
-    - {src: ".vimrc", dest: "~/.config/nvim/init.vim"}
+    - {src: ".config/nvim", dest: "~/.config/nvim"}
     - {src: ".vim/ultisnips", dest: "~/.local/share/nvim/ultisnips"}
-    - {src: ".vim/nerdtree_plugin", dest: "~/.local/share/nvim/nerdtree_plugin"}
 
 - name: install the plugins
   command: 'nvim -E -s -c "source ~/.vimrc" -c PlugInstall -c qa'

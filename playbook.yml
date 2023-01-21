@@ -16,6 +16,9 @@
     - role: vim
       tags:
         - vim
+    - role: nvim
+      tags:
+        - nvim
     - role: tmux
       tags:
         - tmux
