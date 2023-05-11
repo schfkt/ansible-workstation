@@ -7,45 +7,17 @@
       tags:
         - always
   roles:
-    - role: packages
-      tags:
-        - packages
-    - role: alacritty
-      tags:
-        - alacritty
-    - role: vim
-      tags:
-        - vim
-    - role: nvim
-      tags:
-        - nvim
-    - role: tmux
-      tags:
-        - tmux
-    - role: tig
-      tags:
-        - tig
-    - role: bash
-      tags:
-        - bash
-    - role: i3
-      tags:
-        - i3
-    - role: hibernate
-      tags:
-        - hibernate
-    - role: firewall
-      tags:
-        - firewall
-    - role: nodejs
-      tags:
-        - nodejs
-    - role: gpg
-      tags:
-        - gpg
-    - role: tailscale
-      tags:
-        - tailscale
-    - role: syncthing
-      tags:
-        - syncthing
+    - { role: packages, tags: packages }
+    - { role: alacritty, tags: alacritty }
+    - { role: vim, tags: vim }
+    - { role: nvim, tags: nvim }
+    - { role: tmux, tags: tmux }
+    - { role: tig, tags: tig }
+    - { role: bash, tags: bash }
+    - { role: i3, tags: i3 }
+    - { role: hibernate, tags: hibernate }
+    - { role: firewall, tags: firewall }
+    - { role: nodejs, tags: nodejs }
+    - { role: gpg, tags: gpg }
+    - { role: tailscale, tags: tailscale }
+    - { role: syncthing, tags: syncthing }
