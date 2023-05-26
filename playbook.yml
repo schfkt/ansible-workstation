@@ -1,11 +1,7 @@
 - hosts: localhost
   become: false
-  pre_tasks:
-    - name: store dotfiles dir path in a var
-      set_fact:
-        dotfiles_dir: "{{ lookup('env', 'HOME') }}/sync/df"
-      tags:
-        - always
+  vars:
+    dotfiles_dir: "{{ lookup('env', 'HOME') }}/sync/df"
   roles:
     - { role: packages, tags: packages }
     - { role: alacritty, tags: alacritty }

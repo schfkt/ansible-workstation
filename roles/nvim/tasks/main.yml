@@ -28,7 +28,7 @@
     - {src: ".vim/ultisnips", dest: "~/.local/share/nvim/ultisnips"}
 
 - name: install the plugins
-  command: 'nvim -E -s -c "source ~/.vimrc" -c PlugInstall -c qa'
+  command: 'nvim -E -s -c "source ~/.config/nvim/init.vim" -c PlugInstall -c qa'
   ignore_errors: true
 
 - name: compile YCM
