@@ -2,6 +2,15 @@
   become: false
   vars:
     dotfiles_dir: "{{ lookup('env', 'HOME') }}/sync/df"
+    private_dotfiles_dir: "{{ lookup('env', 'HOME') }}/private/df"
+  tasks:
+    - name: link private configs
+      file:
+        src: "{{ private_dotfiles_dir }}/{{ item.src }}"
+        path: "{{ item.dest }}"
+        state: link
+      loop:
+        - {src: "ssh/config", dest: "~/.ssh/config"}
   roles:
     - { role: packages, tags: packages }
     - { role: alacritty, tags: alacritty }
