@@ -1,0 +1,2 @@
+nvim_bob_tag: "v2.4.0"
+nvim_bob_url: "https://github.com/MordechaiHadad/bob/releases/download/{{ nvim_bob_tag }}/bob-linux-x86_64.zip"

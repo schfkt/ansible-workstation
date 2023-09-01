@@ -40,3 +40,10 @@
       - ripgrep
     install_recommends: no
     state: present
+
+- name: install bob nvim manager
+  ansible.builtin.unarchive:
+    src: "{{ nvim_bob_url }}"
+    dest: ~/bin
+    remote_src: yes
+    mode: 'u=rwx'
